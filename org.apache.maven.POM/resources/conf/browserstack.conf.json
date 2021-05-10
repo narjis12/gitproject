@@ -1,0 +1,24 @@
+{
+  "server": "hub-cloud.browserstack.com",
+  "user": "thomasbrambring1",
+  "key": "hJsNvjvXhawmhJxoqC8c",
+  "capabilities": {
+    "name": "Bstack-[TestNG] Sample Test",
+    "browserstack.debug": true,
+    "browserstack.local": false,
+    "browserstack.console" : "info",
+    "browserstack.selenium_version": "2.53.1",
+    "browserstack.networkLogs": true,
+    "project": "portal-frontend",
+    "build": "initial"
+  },
+  "environments": {
+    "chrome": {
+      "os": "Windows",
+      "os_version": "10",
+      "browserName": "Chrome",
+      "browser_version": "75.0",
+      "resolution": "1920x1080"
+    }
+  }
+}

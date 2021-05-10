@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="75094" started-at="2020-10-14T06:24:32Z" finished-at="2020-10-14T06:25:47Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="75094" started-at="2020-10-14T06:24:32Z" finished-at="2020-10-14T06:25:47Z">
+      <class name="feedPage.UploadPicture">
+        <test-method status="PASS" signature="setUp(java.lang.String, java.lang.String)[pri:0, instance:feedPage.UploadPicture@7f63425a]" name="setUp" is-config="true" duration-ms="50026" started-at="2020-10-14T08:24:32Z" finished-at="2020-10-14T08:25:22Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="login(java.lang.String)[pri:0, instance:feedPage.UploadPicture@7f63425a]" name="login" duration-ms="11550" started-at="2020-10-14T08:25:22Z" data-provider="dp" finished-at="2020-10-14T08:25:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[cmptest7@nf.cmp-df.net]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login -->
+        <test-method status="PASS" signature="markBrowserstack(org.testng.ITestResult)[pri:0, instance:feedPage.UploadPicture@7f63425a]" name="markBrowserstack" is-config="true" duration-ms="0" started-at="2020-10-14T08:25:34Z" finished-at="2020-10-14T08:25:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=login status=SUCCESS method=DerivedBase.login(java.lang.String)[pri:0, instance:feedPage.UploadPicture@7f63425a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- markBrowserstack -->
+        <test-method status="PASS" signature="uploadImage(java.lang.String)[pri:0, instance:feedPage.UploadPicture@7f63425a]" name="uploadImage" duration-ms="12493" started-at="2020-10-14T08:25:34Z" data-provider="dp" finished-at="2020-10-14T08:25:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[cmptest7@nf.cmp-df.net]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- uploadImage -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:feedPage.UploadPicture@7f63425a]" name="tearDown" is-config="true" duration-ms="685" started-at="2020-10-14T08:25:47Z" finished-at="2020-10-14T08:25:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="markBrowserstack(org.testng.ITestResult)[pri:0, instance:feedPage.UploadPicture@7f63425a]" name="markBrowserstack" is-config="true" duration-ms="0" started-at="2020-10-14T08:25:47Z" finished-at="2020-10-14T08:25:47Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=uploadImage status=SUCCESS method=UploadPicture.uploadImage(java.lang.String)[pri:0, instance:feedPage.UploadPicture@7f63425a] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- markBrowserstack -->
+      </class> <!-- feedPage.UploadPicture -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
