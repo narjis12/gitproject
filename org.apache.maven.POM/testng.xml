@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+    <classes>
+      <class name="feedPage.createwallpost"/>
+      <class name="feedPage.UploadPicture"/>
+      <class name="com.base.Base"/>
+      <class name="feedPage.FileUpload"/>
+      <class name="feedPage.Wallpost_PictureUpload"/>
+      <class name="com.base.DerivedBase"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

@@ -1,5 +1,6 @@
 package feedPage;
 
+import java.awt.AWTException;
 import java.io.IOException;
 
 import org.testng.annotations.DataProvider;
@@ -13,7 +14,7 @@ import jxl.read.biff.BiffException;
 public class FileUpload extends DerivedBase{
 	FeedPage file;
 	@Test(dataProvider ="dp")
-	public void uploadfile(String email) throws InterruptedException, IOException
+	public void uploadfile(String email) throws InterruptedException, IOException, AWTException
 	{
 		file = new FeedPage();
 		int wallposts = file.createPost(data.get("wallpostText"));

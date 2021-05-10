@@ -69,13 +69,12 @@ import jxl.read.biff.BiffException;
 
 		  public void openWebsite() throws Exception {
 		    if (domain == null) {
-		      domain = "portal-dev.cmp-df.net";
+		      domain = "portal-dev.my-portal.io";
 		    }
 		    driver.get("http://" + domain + "/?user=demo&password=portal");
-		    (new WebDriverWait(driver, 30))
-		        .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".flex-none .pb-4")));
+		   
 		    JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("localStorage.user = 'demo'; localStorage.password = 'portal'");
+
 		    driver.manage().window().maximize();
 		  }
 
@@ -158,7 +157,7 @@ import jxl.read.biff.BiffException;
 		    String os = System.getProperty("os.name").toLowerCase();
 		    if (os.contains("win")) {
 		      // Operating system is based on Windows
-		      String driverPath = "C:\\Users\\public\\Desktop\\chromedriver.exe";
+		      String driverPath = "C:\\Users\\n.fathima\\chromedriver.exe";
 		      System.setProperty("webdriver.chrome.driver", driverPath);
 		      chromeOptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 		      

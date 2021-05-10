@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -14,15 +15,17 @@ import org.testng.annotations.Test;
 import junit.framework.Assert;
 import jxl.read.biff.BiffException;
 public class DerivedBase extends Base {
+	static Base url;
 	@Test(dataProvider = "dp")
-	public static void login(String email) throws BiffException, IOException, InterruptedException {
+	public static void login(String email) throws Exception {
 		// getTestData("Login");
 		// WebDriverWait wait = new WebDriverWait(driver, 10);
 		// wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button/span")));
 		// element.click();
-		WebDriverWait wait = new WebDriverWait(driver, 10);
-		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".flex:nth-child(1) > .login-navigation .block")));
+		WebDriverWait wait = new WebDriverWait(driver, 70);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".login-logout-navigation .flex-auto")));
 		element.click();
+		//driver.findElement(By.cssSelector(".flex:nth-child(1) > .login-navigation .block")).click();
 		String parentWindowHandler = driver.getWindowHandle(); // Store your parent window
 		String subWindowHandler = null;
 		Set<String> handles = driver.getWindowHandles(); // get all window handles
@@ -31,19 +34,40 @@ public class DerivedBase extends Base {
 			subWindowHandler = iterator.next();
 		}
 		driver.switchTo().window(subWindowHandler);
-		waitForId("login-email");
+		wait.until(ExpectedConditions.elementToBeClickable(By.id("login-email")));
 		driver.findElement(By.id("login-email")).sendKeys(email);
 		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.findElement(By.id("login-password")).sendKeys("Najju@2017");
 		driver.findElement(By.cssSelector(".btn")).click();
 		driver.switchTo().window(parentWindowHandler);
-		Thread.sleep(5000);
+		wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector(".form-text")));
 		//(new WebDriverWait(driver, 10)).until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".page-template")));
 		((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 		int s = driver.findElements(By.cssSelector(".form-text")).size();
 		JavascriptExecutor js = (JavascriptExecutor) driver;
 		if (s > 0) {
 			System.out.println("logged in successfully");
+			url = new Base();
+			driver.get("https://portal-dev.my-portal.io/settings/general");
+			Thread.sleep(4000);
+			int lan = driver.findElements(By.name("Select Language")).size();
+			if (lan > 0) {
+				System.out.println("English is already selected as portal language");
+				((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0)");
+				url.openWebsite();
+				Thread.sleep(5000);
+			} else {
+				waitForId("Sprache ändern");
+				((JavascriptExecutor) driver).executeScript("window.scrollTo(0, 0)");
+				Select language = new Select(driver.findElement(By.name("Sprache ändern")));
+				language.selectByValue("en");
+				driver.findElement(By.xpath("//div[2]/aside/div[3]/button/span")).click();
+				Thread.sleep(4000);
+				url.openWebsite();
+				Thread.sleep(5000);
+			}
+			
+			
 		} else {
 			int paymnet = driver.findElements(By.cssSelector(".payment__title")).size();
 			int setup = driver.findElements(By.cssSelector(".setup__subtitle")).size();
